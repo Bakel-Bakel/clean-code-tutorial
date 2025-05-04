@@ -4,10 +4,8 @@
 > “Any fool can write code that a computer can understand. Good programmers write code that humans can understand.”  
 > — Martin Fowler
 
-Welcome to my **Clean Code Tutorial** . This is more like a spin-off from Maximillian Schwarzmuller's Udemy Course on **Clean Codes** .
-
-This repo shows badly written code alongside its clean code equivalent. 
-This ia a practical, example-driven guide to writing better, more maintainable, and readable code. This repository is designed for developers who want to move beyond just "working code" and start writing **professional-grade** code that is clean, understandable, and easy to maintain.
+Welcome to my **Clean Code Tutorial** . With inspiration from Maximillian Schwarzmuller's Udemy Course on **Clean Codes**, this repo shows badly written code alongside its clean code equivalent. 
+This is a practical, example-driven guide to writing better, more maintainable, and readable code. This repository is designed for developers who want to move beyond just "working code" and start writing **professional-grade** code that is clean, understandable, and easy to maintain.
 
 ---
 
