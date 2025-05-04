@@ -1,14 +1,18 @@
 
 # 🧼 Clean Code Tutorial
 
-Welcome to the **Clean Code Tutorial** — a practical, example-driven guide to writing better, more maintainable, and readable code. This repository is designed for developers who want to move beyond just "working code" and start writing **professional-grade** code that is clean, understandable, and easy to maintain.
+> “Any fool can write code that a computer can understand. Good programmers write code that humans can understand.”  
+> — Martin Fowler
+
+Welcome to my **Clean Code Tutorial** . This is more like a spin-off from Maximillian Schwarzmuller's Udemy Course on **Clean Codes** .
+
+This repo shows badly written code alongside its clean code equivalent. 
+This ia a practical, example-driven guide to writing better, more maintainable, and readable code. This repository is designed for developers who want to move beyond just "working code" and start writing **professional-grade** code that is clean, understandable, and easy to maintain.
 
 ---
 
 ## 📚 What You'll Learn
 
-- What "clean code" actually means
-- How to identify and fix messy code
 - Clean coding practices and naming conventions
 - Writing readable functions and modular code
 - Refactoring techniques
@@ -21,11 +25,12 @@ Welcome to the **Clean Code Tutorial** — a practical, example-driven guide to 
 
 ```
 clean-code-tutorial/
-├── badcode/            # Messy or poorly written code examples
-├── cleancode/          # Refactored clean versions of the same examples
-├── refactoring/        # Step-by-step improvements of bad code
-├── best-practices/     # General clean code principles and tips
-└── README.md           # This file
+├── py/            # Sample of bad and clean python codes
+├── js/            # Sample of bad and clean javascript codes
+├── cpp/           # Sample of bad and clean C++ codes
+├── c/             # Sample of bad and clean C codes
+├── rust/
+└── README.md      # This file (apparently)
 ```
 
 ---
@@ -35,18 +40,14 @@ clean-code-tutorial/
 1. Clone the repo:
 
 ```bash
-git clone https://github.com/yourusername/clean-code-tutorial.git
+git clone https://github.com/bakel-bakel/clean-code-tutorial.git
 cd clean-code-tutorial
 ```
 
 2. Explore examples:
 
 ```bash
-cd badcode/
-python example1.py
-
-cd ../cleancode/
-python example1_clean.py
+cd py/
 ```
 
 ---
@@ -74,7 +75,7 @@ python example1_clean.py
 
 ## 🙌 Contributing
 
-Contributions are welcome! If you want to add new examples, improve existing ones, or share clean code tips:
+Please, contributions are welcome! If you want to add new examples, improve existing ones, or share clean code tips:
 
 1. Fork the repo
 2. Create a new branch
@@ -87,10 +88,5 @@ Contributions are welcome! If you want to add new examples, improve existing one
 This project is licensed under the [MIT License](LICENSE).
 
 ---
-
-## 💡 A Quote to Remember
-
-> “Any fool can write code that a computer can understand. Good programmers write code that humans can understand.”  
-> — Martin Fowler
 
 Happy cleaning! ✨
