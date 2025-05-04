@@ -1,28 +1,122 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+*  Project Started on 1st Feb. 2018 as a major BAKEL J's project/application
+**
+**
+*Finished on 
  */
-package rpspro.rock_paper_scissor_game.bad_rock_paper_scissor;
-import static rpspro.rock_paper_scissor_game.bad_rock_paper_scissor.RPSPRO.INTRO;
-
+package rock_paper_scissor_game.bad_rock_paper_scissor;
 import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
 import java.util.Scanner;
+
 /**
  *
  * @author BAKEL J
  */
+ class RPSPRO {
 
-
-
-
-
-public class INTRO {
-  
+    /**
+     * @param args the command line arguments
+     */
+    private static int n = 0;
+    public static void main(String[] args) {
+     INTRO();
+     
+    }
+    private static JFrame frame;
+    private static JTextField rounds;
     
-  private JFrame Frame;
+    
+    public static void INTRO(){
+       rounds = new JTextField(8);
+ JTextField weightField = new JTextField(5);
+ JButton info = new JButton("ROCK PAPER SCISSOR");
+ info.setBackground(Color.lightGray); 
+ info.setForeground(Color.blue);
+ info.setFont(new Font("Cooper Black", Font.PLAIN,16));
+ 
+ 
+ JButton play = new JButton("PLAY");
+ JLabel howmany = new JLabel("How many rounds do you want to play");
+ howmany.setForeground(Color.blue); 
+ howmany.setFont(new Font("Lucida Handwriting", Font.PLAIN, 13));
+ 
+ JLabel or = new JLabel ("--------------------OR----------------------");
+ or.setForeground(Color.blue); 
+ or.setFont(new Font("Lucida Handwriting", Font.PLAIN, 13));
+ 
+ JButton unlimit = new JButton ("PLAY UNLIMITEDLY");
+
+ // layout
+ JPanel north = new JPanel(new FlowLayout());
+ north.add(howmany);
+ north.add(rounds);
+ north.add(play);
+ north.add(or);
+ north.add(unlimit);
+
+ // overall frame
+ frame = new JFrame("RPS");
+ frame.setLocation(50, 50);
+ frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+ frame.setLayout(new BorderLayout());
+ frame.add(info, BorderLayout.NORTH);
+ frame.add(north, BorderLayout.CENTER);
+ frame.setResizable(false);
+ frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+ frame.setVisible(true);
+ frame.setSize(300, 200);
+
+         
+ 
+ frame.setVisible(true); 
+  play.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent event){
+            
+             try {
+           
+
+            String loog = rounds.getText();
+              n = Integer.parseInt(loog); 
+             RPSPRO gui = new RPSPRO(n);
+            
+          
+
+           
+
+       } catch (NumberFormatException nfe) {
+ 
+           JOptionPane.showMessageDialog(frame, "Sorry you entered an invalid number.\nNOTE : Integers only");
+}
+            
+        }
+        
+
+  });
+  info.addActionListener(new ActionListener(){
+            @Override
+             public void actionPerformed(ActionEvent event){
+                  JOptionPane.showMessageDialog(frame, "RPS brings a traditional human game to the pc...."
+                          + "\nMade up of 1109 lines of pure java code, RPS provides flexibilty, accuracy and entertainment"
+                          + "\n By Bakel\t\t\t\n#HandofGod\nTHANKS FOR PLAYING");   
+             }
+             
+        });
+     unlimit.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent event){
+              
+              INTRO gu = new INTRO();
+            }
+            
+        }
+        );
+          }
+    
+    
+ public final JFrame Frame;
  private JLabel scores;
  private JLabel player;
  private JLabel comp;
@@ -47,9 +141,12 @@ public class INTRO {
  
  private JFrame flog;
  private JButton history;
- private JTextArea place; 
-    
-    public INTRO(){
+ private JTextArea place;
+
+ 
+ 
+    public RPSPRO(int n){
+ 
         Frame = new JFrame();
         scores = new JLabel("SCORES");
         player = new JLabel("  Player's win(s) : 0");
@@ -75,7 +172,7 @@ public class INTRO {
         intro.setFont(new Font("Cooper Black", Font.PLAIN,16));
         
         String r = "Round 1";
-        round = new JButton (r+" of unlimited");
+        round = new JButton (r+" of "+n);
         round.setBackground(Color.blue);
         round.setForeground(Color.LIGHT_GRAY);
         
@@ -164,17 +261,27 @@ public class INTRO {
         Frame.setTitle("RPS: Rock, Paper, Scissor");
         gamelog.setEnabled(true);
        
-    Rock.addActionListener(new Rock());
+   
+         
+       
+       
+        Rock.addActionListener(new Rock());
         
         Scissors.addActionListener(new Scissors());
         Paper.addActionListener(new Paper());
         
-        
+         gamelog.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent event){
+                spce();
+            }
+        });
+         
         restart.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent event){
               Frame.dispose();
-              INTRO gui = new INTRO();
+              RPSPRO gui = new RPSPRO(n);
             }
             
         }
@@ -182,35 +289,70 @@ public class INTRO {
            intro.addActionListener(new ActionListener(){
             @Override
              public void actionPerformed(ActionEvent event){
-                  JOptionPane.showMessageDialog(Frame, "RPS Unlimited brings a traditional human game to the pc...."
-                          + "\nThis section of the game allows you to play with computer as much as you want (unlimitedly)"
+                  JOptionPane.showMessageDialog(Frame, "RPS Classic brings a traditional human game to the pc...."
+                          + "\nThis section allows you to choose how many rounds you want to go with computer."
                           + "\n By Bakel\t\t\t\n#HandofGod\nTHANKS FOR PLAYING");   
              }
              
         });
-      
-           gamelog.addActionListener(new ActionListener(){
-              @Override
-              public void actionPerformed(ActionEvent event){
-                  spce();
-              }
-           });
+    
 
-         
-       
-       
-       
+    
+      } 
+    
+    
+    public void spce(){
+         flog = new JFrame("GAME LOG");
         
-         
- 
-     
+        history = new JButton("GAME HISTORY");
+        history.setBackground(Color.lightGray); 
+        history.setForeground(Color.blue);
+        history.setFont(new Font("Cooper Black", Font.PLAIN,16));
+        
+        JTextArea places = new JTextArea();
+        places.setEditable(false);
+        places.setForeground(Color.blue);
+        places.setFont(new Font("Lucida Handwriting", Font.PLAIN, 12));
+        
+        JPanel center = new JPanel(new GridLayout(2,1));
+        center.add(history);
+        center.add(places);
+        
+        flog.setLayout(new BorderLayout());
+        flog.add(center, BorderLayout.CENTER);
+        
+        flog.add(new JScrollPane(places));
+        flog.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        flog.setVisible(true);
+        flog.setSize(440, 400); 
+        Status();
+        String loog = place.getText();
+        places.setText(loog);
     }
-     int a = 1;
+
+       int bb = n;
+        int a = 1;
     public class Scissors implements ActionListener{
         
         public void actionPerformed (ActionEvent e){
          a++;
-          round.setText("Round "+a+" of unlimited ");
+         
+           
+          if (a==bb+1){
+                int x = start();
+          
+          ins(x);
+          round.setText("END OF GAME");
+          almostend(a);
+          }else if (a==bb){
+              round.setText("Final Round");
+              int x = start();
+          
+          ins(x); 
+              
+          }else{
+          
+          round.setText("Round "+a+" of "+bb);
           int x = start();
           
           ins(x);
@@ -218,26 +360,55 @@ public class INTRO {
 
         }
     }
-    
+    }
     public class Paper implements ActionListener{
         
         public void actionPerformed(ActionEvent e){
             a++;
+            
+          if (a==bb+1){
+                int x = start();
           
-          round.setText("Round "+a+" of unlimited ");
+          inp(x);
+          round.setText("END OF GAME");
+          almostend(a);
+          }else if (a==bb){
+              round.setText("Final Round");
+              int x = start();
+          
+          inp(x); 
+              
+          }else{
+          
+          round.setText("Round "+a+" of "+bb);
           int x = start();
           
           inp(x); 
         }
     }
-    
+    }
     
     
     public class Rock implements ActionListener{
 
         public void actionPerformed(ActionEvent e) {
-        a++ ;
-         round.setText("Round "+a+" of unlimited ");
+          a= a+1;
+            
+          if (a==bb+1){
+                int x = start();
+          
+          inr(x);
+          round.setText("END OF GAME");
+          almostend(a);
+          }else if (a==bb){
+              round.setText("Final Round");
+              int x = start();
+          
+          inr(x); 
+              
+          }else{
+          
+          round.setText("Round "+a+" of "+bb);
           int x = start();
           inr(x);
           }
@@ -245,7 +416,54 @@ public class INTRO {
 
           
         }
+        
+    }
+    
+    public void almostend(int a){
+       
+        if (a==bb+1){
+        Rock.setEnabled(false);
+        Scissors.setEnabled(false);
+        Paper.setEnabled(false);
+        restart.setEnabled(false);
+        gamelog.setEnabled(true);
+        south.add(next);
+        
+        next.addActionListener(new ActionListener(){
+            @Override
+             public void actionPerformed(ActionEvent event){
+                endofround(a); 
+             }
+             
+        });
+        
+         String playerscoress = player.getText();
+         String p = playerscoress.substring(20);
+         
+         int pp = Integer.parseInt(p);
+         
+         String ccc = comp.getText();
+         ccc = ccc.substring(20);
+         
+         int cc = Integer.parseInt(ccc);
+         
+         if (pp>cc){
+          place.append("\n\n--------END OF GAME----------\nRESULTS \nCongratulations You won Computer \n"+p+" to "+cc);
           
+        
+          
+         }else if (pp<cc){
+           place.append( "\n\n--------END OF GAME----------\nRESULTS \nSorry Computer won You \n"+cc+" to "+p);    
+         }else{
+             place.append( "\n\n--------END OF GAME----------\nRESULTS \nYou drew with computer \n"+p+" to "+cc);  
+         }
+         
+       
+    }
+    }
+   
+ 
+    
     public int start(){
      int x = (int)(Math.random()*3);   
     return x; 
@@ -364,7 +582,11 @@ public class INTRO {
                 place.append(tie);
                 drawpoint();
             }
-          
+            if (a==bb+1){
+                main.append("\n\n--------END OF GAME----------");
+                
+                
+            }
        
     
     }
@@ -401,50 +623,68 @@ int s = 0;
     public void drawpoint(){
         cf++;
         draw.setText("        Draws : "+cf);
-        
     }
     
-    
-    public void Status(){
-        if (s>b){
+     public void Status(){
+     if (n<bb+1){
+         if (s>b){
             place.append("\n\nYou are currently winning computer "+s+" to "+b+"\nAnd have drawed "+cf+" times");
         }else if (s==b){
             place.append("\n\nYou are currently tied "+s+" to "+b+" with computer"+"\nAnd have drawed "+cf+" times");
         }else{
             place.append("\n\nComputer is currently winning "+b+" to "+s+"\nAnd you have drawed "+cf+" times");
         }
+    }else{
+      place.append("");   
+     }
+     }
+    
+    public void endofround(int a){
+        
+         String playerscoress = player.getText();
+         String p = playerscoress.substring(20);
+         
+         int pp = Integer.parseInt(p);
+         
+         String c = comp.getText();
+         c = c.substring(20);
+         
+         int cc = Integer.parseInt(c);
+         
+         if (pp>cc){
+          String display = "End of Game \nCongratulations You won Computer \n"+p+" to "+c;
+          
+        
+             JOptionPane.showMessageDialog(Frame, "End of Game \nCongratulations You won Computer \n"+p+" to "+c);   
+         }else if (pp<cc){
+           JOptionPane.showMessageDialog(Frame, "End of Game \nSorry Computer won You \n"+c+" to "+p);    
+         }else{
+             JOptionPane.showMessageDialog(Frame, "End of Game \nYou drew with computer \n"+p+" to "+c);  
+         }
+         
+         Object [] options1 = {"GameLog","Play again","Quit"};
+        int result =  JOptionPane.showOptionDialog(Frame,"THANK YOU FOR PLAYING","THANKS A LOT",JOptionPane.YES_NO_CANCEL_OPTION,JOptionPane.PLAIN_MESSAGE,null,options1,null);
+        String loog = place.getText(); 
+        if (result == JOptionPane.YES_OPTION){
+           spce();
+           
+           
+         }else if(result == JOptionPane.NO_OPTION){
+             Frame.dispose();
+             frame.dispose();
+             INTRO(); 
+         }else{
+             System.exit(0);
+         }
+         
+         
+        
     }
     
-    public void spce(){
-         flog = new JFrame("GAME LOG");
-        
-        history = new JButton("GAME HISTORY");
-        history.setBackground(Color.lightGray); 
-        history.setForeground(Color.blue);
-        history.setFont(new Font("Cooper Black", Font.PLAIN,16));
-        
-        JTextArea places = new JTextArea();
-        places.setEditable(false);
-        places.setForeground(Color.blue);
-        places.setFont(new Font("Lucida Handwriting", Font.PLAIN, 12));
-        
-        JPanel center = new JPanel(new GridLayout(2,1));
-        center.add(history);
-        center.add(places);
-        
-        flog.setLayout(new BorderLayout());
-        flog.add(center, BorderLayout.CENTER);
-        
-        flog.add(new JScrollPane(places));
-        flog.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        flog.setVisible(true);
-        flog.setSize(440, 400); 
-        Status(); 
-        String loog = place.getText();
-        places.setText(loog);
-       
-    }  
- 
-  
-  
+    
 }
+
+
+
+
+                                                              

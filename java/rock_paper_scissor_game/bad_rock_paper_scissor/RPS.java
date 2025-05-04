@@ -1,4 +1,4 @@
-package rpspro.rock_paper_scissor_game.bad_rock_paper_scissor;
+package rock_paper_scissor_game.bad_rock_paper_scissor;
 import java.util.Scanner;
 /**
  *
