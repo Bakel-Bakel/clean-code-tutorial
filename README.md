@@ -28,6 +28,7 @@ clean-code-tutorial/
 ├── cpp/           # Sample of bad and clean C++ codes
 ├── c/             # Sample of bad and clean C codes
 ├── rust/
+├── matlab/
 └── README.md      # This file (apparently)
 ```
 
