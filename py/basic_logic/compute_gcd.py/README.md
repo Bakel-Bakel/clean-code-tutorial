@@ -110,7 +110,7 @@ def main():
 Clone the repo and run:
 
 ```bash
-python3 gcd_tool.py
+python compute_gcd.py
 ```
 
 ---
